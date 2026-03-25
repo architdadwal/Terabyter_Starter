@@ -1,5 +1,5 @@
 const year = new Date().getFullYear()
-
+import { SocialIcon } from 'react-social-icons'
 export default function SiteFooter() {
   return (
     <footer className="footer">
@@ -23,10 +23,13 @@ export default function SiteFooter() {
           </div>
 
           <div className="footerLinks" aria-label="Footer links">
-            <a href="#/services">Services</a>
-            <a href="#/work">Work</a>
+            {/* <a href="#/services">Services</a>
+            <SocialIcon network="github" /> */}
+            <SocialIcon href="https://www.linkedin.com/in/terabyte-technologies-44469a3b9/" network="linkedin" />
+            <SocialIcon network="instagram" />
+            {/* <a href="#/work">Work</a>
             <a href="#/about">About</a>
-            <a href="#/contact">Contact</a>
+            <a href="#/contact">Contact</a> */}
           </div>
         </div>
       </div>

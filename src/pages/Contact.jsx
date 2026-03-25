@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react'
+import emailjs from '@emailjs/browser';
+
 
 const defaultForm = {
   name: '',
@@ -27,16 +29,42 @@ export default function Contact() {
   function onSubmit(e) {
     e.preventDefault()
 
-    const nameOk = form.name.trim().length >= 2
-    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())
-    const messageOk = form.message.trim().length >= 10
+    const nameOk = form.name.length >= 2
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
+    const messageOk = form.message.length >= 10
 
     if (!nameOk || !emailOk || !messageOk) {
-      alert('Please add your name, a valid email, and a short message.')
+      alert('Please add valid details')
       return
     }
 
-    setSubmitted(true)
+    emailjs.send(
+      'service_vodf2qu',
+      'template_828dpny',
+      {
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        budget: form.budget,
+        message: form.message,
+      },
+      'Z700SXTvK4kOJl_5V'
+    )
+    emailjs.send('service_vodf2qu', 'template_n8lgkmi', {
+      name: form.name,
+      email: form.email,
+      company: form.company,
+      budget: form.budget,
+      message: form.message,
+
+    },
+      'Z700SXTvK4kOJl_5V')
+      .then(() => {
+        setSubmitted(true)
+      })
+      .catch(() => {
+        alert('Something went wrong, try again')
+      })
   }
 
   return (
@@ -135,14 +163,14 @@ export default function Contact() {
                     <button className="btn btnPrimary" type="submit">
                       Submit
                     </button>
-                    <a className="btn" href={mailto}>
+                    {/* <a className="btn" href={mailto}>
                       Email instead
-                    </a>
+                    </a> */}
                   </div>
-                  <div className="muted" style={{ marginTop: 10, fontSize: 13 }}>
+                  {/* <div className="muted" style={{ marginTop: 10, fontSize: 13 }}>
                     Tip: this demo form doesn’t send data anywhere; use “Email instead” or
                     connect a backend later.
-                  </div>
+                  </div> */}
                 </form>
               ) : (
                 <div>
@@ -176,7 +204,7 @@ export default function Contact() {
                 Quick info
               </div>
               <div className="muted" style={{ marginTop: 10 }}>
-                Email: <span style={{ color: 'rgba(255,255,255,0.86)' }}>hello@terabyte.com</span>
+                Email: <span style={{ color: 'rgba(255,255,255,0.86)' }}>terabyte.about@gmail.com</span>
               </div>
               <div className="muted" style={{ marginTop: 10 }}>
                 Response time:{' '}
