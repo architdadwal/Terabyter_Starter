@@ -3,10 +3,11 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import './site.css'
 import App from './App.jsx'
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from '@vercel/analytics/react'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
+    <Analytics />
   </StrictMode>,
 )
