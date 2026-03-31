@@ -177,13 +177,13 @@ export default function Contact() {
                   <h2 className="h2" style={{ marginBottom: 8 }}>
                     Thanks — we got it.
                   </h2>
-                  <p className="lead" style={{ marginTop: 0 }}>
+                  {/* <p className="lead" style={{ marginTop: 0 }}>
                     For now, this template uses email. Click below to send your details.
                   </p>
                   <div style={{ height: 14 }} />
                   <a className="btn btnPrimary" href={mailto}>
                     Open email draft
-                  </a>
+                  </a> */}
                   <button
                     className="btn"
                     type="button"
