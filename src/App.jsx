@@ -7,7 +7,7 @@ import Contact from './pages/Contact.jsx'
 import NotFound from './pages/NotFound.jsx'
 import SiteFooter from './components/SiteFooter.jsx'
 import SiteHeader from './components/SiteHeader.jsx'
-import { Analytics } from "@vercel/analytics/next"
+// import { Analytics } from "@vercel/analytics/next"
 
 function getPathFromHash() {
   const raw = window.location.hash || '#/'
